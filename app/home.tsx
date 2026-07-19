@@ -5,10 +5,9 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
-  Platform,
   BackHandler,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import dayjs from 'dayjs';
 import Card from '@ant-design/react-native/lib/card';
 import DatePicker from '@ant-design/react-native/lib/date-picker';
@@ -406,7 +405,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingHorizontal: 20,
-    paddingTop: Platform.OS === 'ios' ? 20 : 40,
+    paddingTop: 0,
     paddingBottom: 40,
   },
   headerContainer: {
