@@ -135,7 +135,7 @@ export default function HomeScreen() {
   // };
 
   const formatDate = (date: Date | null) => {
-  return date ? dayjs(date).format('DD MMMM YYYY') : '-- ---- ----';
+    return date ? dayjs(date).format('DD MMMM YYYY') : '-- ---- ----';
   };
 
   const formatNumber = (num: number) => {
@@ -145,7 +145,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-        
+
         {/* Header Section (Fades and collapses in Result Mode) */}
         <Animated.View style={[styles.headerContainer, headerAnimatedStyle]}>
           <Text style={styles.title}>Age Calculator</Text>
@@ -156,11 +156,11 @@ export default function HomeScreen() {
         <Animated.View style={styles.cardContainer}>
           <Card style={styles.card}>
             <View style={styles.cardBody}>
-              
+
               {/* Full Input Form (Visible when editingMode = true) */}
               <Animated.View style={formFieldsAnimatedStyle}>
                 <Text style={styles.formTitle}>Select Range</Text>
-                
+
                 <List style={styles.list}>
                   {/* From Date Picker */}
                   <DatePicker
@@ -260,7 +260,6 @@ export default function HomeScreen() {
                   </Animated.View>
                 </Flex>
               </Animated.View>
-
             </View>
           </Card>
         </Animated.View>
@@ -268,21 +267,30 @@ export default function HomeScreen() {
         {/* Results and Calendar Section (Rendered conditionally when not editing) */}
         {!editingMode && result && (
           <View style={styles.resultsContainer}>
-            
+
             {/* Age Breakdown Card */}
             <Animated.View
               entering={FadeInDown.duration(400)}
               style={styles.resultCardWrapper}
             >
+              <View style={styles.sectionHeaderContainer}>
+                <AntDesign
+                  name="calendar"
+                  size={18}
+                  color="#1677FF"
+                  style={styles.sectionHeaderIcon}
+                />
+                <Text style={styles.sectionHeader}>Age Breakdown</Text>
+              </View>
               <Card style={styles.card}>
-                <Card.Header
+                {/* <Card.Header
                   title={
                     <View style={styles.cardHeaderRow}>
                       <AntDesign name={"calendar" as any} size={16} color="#1677FF" style={styles.headerIcon} />
                       <Text style={styles.cardHeaderTitle}>Age Breakdown</Text>
                     </View>
                   }
-                />
+                /> */}
                 <View style={styles.resultsCardBody}>
                   {/* Primary result display */}
                   <View style={styles.primaryResultContainer}>
@@ -348,10 +356,17 @@ export default function HomeScreen() {
               entering={FadeInDown.delay(500).duration(400)}
               style={styles.calendarWrapper}
             >
-              <Text style={styles.sectionHeader}>Visual Range Preview</Text>
+              <View style={styles.sectionHeaderContainer}>
+                <AntDesign
+                  name="calendar"
+                  size={18}
+                  color="#1677FF"
+                  style={styles.sectionHeaderIcon}
+                />
+                <Text style={styles.sectionHeader}>Visual Range Preview</Text>
+              </View>
               <RangeCalendar fromDate={fromDate} toDate={toDate} />
             </Animated.View>
-
           </View>
         )}
 
@@ -363,7 +378,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F7F8FC', // Premium soft gray background
+    // backgroundColor: '#F7F8FC', // Premium soft gray background
+    backgroundColor: '#000000',
   },
   scrollContainer: {
     paddingHorizontal: 20,
@@ -557,11 +573,20 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#1F2937',
   },
+  sectionHeaderContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+
+  sectionHeaderIcon: {
+    marginRight: 8,
+  },
   sectionHeader: {
     fontSize: 16,
     fontWeight: '700',
     color: '#1F2937',
-    marginBottom: 12,
+    marginBottom: 0,
   },
   calendarWrapper: {
     marginTop: 10,
