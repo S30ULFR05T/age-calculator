@@ -12,6 +12,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { AntDesign } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
 
@@ -26,6 +27,7 @@ const PARTICLES = [
 
 export default function SplashScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
 
   // Logo Animation values
   const logoScale = useSharedValue(0);
@@ -188,6 +190,11 @@ export default function SplashScreen() {
           </Animated.Text>
         </View>
       </View>
+
+      {/* Small Font Footer */}
+      <Animated.Text style={[styles.footer, subAnimatedStyle, { bottom: Math.max(insets.bottom, 16) + 12 }]}>
+        designed and developed by S30ULFR05T
+      </Animated.Text>
     </View>
   );
 }
@@ -347,5 +354,15 @@ const styles = StyleSheet.create({
     color: '#8C9BAE',
     fontWeight: '500',
     textAlign: 'center',
+  },
+  footer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    fontSize: 11,
+    color: '#52667A',
+    letterSpacing: 0.5,
+    textAlign: 'center',
+    fontWeight: '500',
   },
 });
