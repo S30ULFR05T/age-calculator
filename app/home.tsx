@@ -7,6 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
   Platform,
+  BackHandler,
 } from 'react-native';
 import dayjs from 'dayjs';
 import Card from '@ant-design/react-native/lib/card';
@@ -45,6 +46,23 @@ export default function HomeScreen() {
       duration: 350,
     });
   }, [editingMode, morphProgress]);
+
+  useEffect(() => {
+    const backAction = () => {
+      if (!editingMode) {
+        setEditingMode(true);
+        return true;
+      }
+      return false;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [editingMode]);
 
   const handleCalculate = () => {
     if (!fromDate || !toDate) {
