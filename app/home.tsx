@@ -7,7 +7,7 @@ import {
   ScrollView,
   BackHandler,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import dayjs from 'dayjs';
 import Card from '@ant-design/react-native/lib/card';
 import DatePicker from '@ant-design/react-native/lib/date-picker';
@@ -28,6 +28,7 @@ import { calculateAge, AgeCalculationResult } from '@/utils/age-calculator';
 import { RangeCalendar } from '@/components/range-calendar';
 
 export default function HomeScreen() {
+  const insets = useSafeAreaInsets();
   const [fromDate, setFromDate] = useState<Date | null>(null);
   const [toDate, setToDate] = useState<Date>(new Date());
   const [result, setResult] = useState<AgeCalculationResult | null>(null);
@@ -162,7 +163,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={[styles.scrollContainer, { paddingBottom: Math.max(16 - insets.bottom, 0) + 12 }]} showsVerticalScrollIndicator={false}>
 
         {/* Header Section (Animate title to top and smaller in Result Mode) */}
         <Animated.View style={[styles.headerContainer, headerAnimatedStyle]}>
@@ -389,10 +390,22 @@ export default function HomeScreen() {
               </View>
               <RangeCalendar fromDate={fromDate} toDate={toDate} />
             </Animated.View>
+
+            {/* Inline Footer below visual calendar in breakdown mode */}
+            <Text style={styles.inlineFooter}>
+              designed and developed by S30ULFR05T
+            </Text>
           </View>
         )}
 
       </ScrollView>
+
+      {/* Absolute footer shown ONLY in editingMode (select range screen) */}
+      {editingMode && (
+        <Text style={[styles.footer, { bottom: Math.max(insets.bottom, 16) + 12 }]}>
+          designed and developed by S30ULFR05T
+        </Text>
+      )}
     </SafeAreaView>
   );
 }
@@ -406,7 +419,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingHorizontal: 20,
     paddingTop: 0,
-    paddingBottom: 40,
+    paddingBottom: 20,
   },
   headerContainer: {
     alignItems: 'center',
@@ -613,5 +626,23 @@ const styles = StyleSheet.create({
   },
   calendarWrapper: {
     marginTop: 10,
+  },
+  footer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    fontSize: 10,
+    color: '#4B5563',
+    textAlign: 'center',
+    letterSpacing: 0.5,
+    fontWeight: '500',
+  },
+  inlineFooter: {
+    fontSize: 10,
+    color: '#4B5563',
+    textAlign: 'center',
+    letterSpacing: 0.5,
+    fontWeight: '500',
+    marginTop: 24,
   },
 });
