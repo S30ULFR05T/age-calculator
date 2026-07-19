@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "age-calculator",
+    "name": "Age Calculator",
+    // "name": "age-calculator",
     "slug": "age-calculator",
     "version": "1.0.0",
     "orientation": "portrait",
