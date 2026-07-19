@@ -90,9 +90,28 @@ export default function HomeScreen() {
   // Animated styles for morphing transitions (clamped to prevent spring-overshoot jitters)
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {
-      opacity: interpolate(morphProgress.value, [0, 0.8], [1, 0], Extrapolation.CLAMP),
-      height: interpolate(morphProgress.value, [0, 1], [90, 0], Extrapolation.CLAMP),
-      marginBottom: interpolate(morphProgress.value, [0, 1], [24, 0], Extrapolation.CLAMP),
+      height: interpolate(morphProgress.value, [0, 1], [90, 52], Extrapolation.CLAMP),
+      marginBottom: interpolate(morphProgress.value, [0, 1], [24, 8], Extrapolation.CLAMP),
+      overflow: 'hidden',
+    };
+  });
+
+  const titleAnimatedStyle = useAnimatedStyle(() => {
+    const scale = interpolate(morphProgress.value, [0, 1], [1, 0.75], Extrapolation.CLAMP);
+    const translateY = interpolate(morphProgress.value, [0, 1], [0, -5], Extrapolation.CLAMP);
+    return {
+      transform: [
+        { scale },
+        { translateY },
+      ],
+    };
+  });
+
+  const subtitleAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(morphProgress.value, [0, 0.5], [1, 0], Extrapolation.CLAMP),
+      height: interpolate(morphProgress.value, [0, 0.5], [20, 0], Extrapolation.CLAMP),
+      marginTop: interpolate(morphProgress.value, [0, 0.5], [4, 0], Extrapolation.CLAMP),
       overflow: 'hidden',
     };
   });
@@ -109,7 +128,7 @@ export default function HomeScreen() {
   const summaryRowAnimatedStyle = useAnimatedStyle(() => {
     return {
       opacity: interpolate(morphProgress.value, [0.2, 1], [0, 1], Extrapolation.CLAMP),
-      height: interpolate(morphProgress.value, [0, 1], [0, 46], Extrapolation.CLAMP),
+      height: interpolate(morphProgress.value, [0, 1], [0, 44], Extrapolation.CLAMP),
       pointerEvents: editingMode ? 'none' : 'auto',
       overflow: 'hidden',
     };
@@ -146,10 +165,14 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
 
-        {/* Header Section (Fades and collapses in Result Mode) */}
+        {/* Header Section (Animate title to top and smaller in Result Mode) */}
         <Animated.View style={[styles.headerContainer, headerAnimatedStyle]}>
-          <Text style={styles.title}>Age Calculator</Text>
-          <Text style={styles.subtitle}>Calculate your exact age instantly</Text>
+          <Animated.Text style={[styles.title, titleAnimatedStyle]}>
+            {editingMode ? 'Age Calculator' : 'Age Calculation'}
+          </Animated.Text>
+          <Animated.View style={subtitleAnimatedStyle}>
+            <Text style={styles.subtitle}>Calculate your exact age instantly</Text>
+          </Animated.View>
         </Animated.View>
 
         {/* Primary Interactive Card (Morphs from full inputs to compact summary) */}
@@ -393,13 +416,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#1F2937',
+    color: '#FFFFFF',
     marginBottom: 6,
     letterSpacing: -0.5,
+    marginTop: 6
   },
   subtitle: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#A3A3A3',
     fontWeight: '500',
     textAlign: 'center',
   },
@@ -585,7 +609,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#FFFFFF',
     marginBottom: 0,
   },
   calendarWrapper: {

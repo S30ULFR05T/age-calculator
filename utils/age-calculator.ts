@@ -34,7 +34,7 @@ export function calculateAge(fromDate: Date, toDate: Date): AgeCalculationResult
   const totalDays = to.diff(from, 'day');
   const weeks = Math.floor(totalDays / 7);
   const remainingDays = totalDays % 7;
-
+  
   // Use the exact date-time differences for hours/minutes/seconds
   const fromTime = dayjs(fromDate);
   const toTime = dayjs(toDate);
