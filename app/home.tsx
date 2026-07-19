@@ -29,7 +29,7 @@ import { RangeCalendar } from '@/components/range-calendar';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
-  const [fromDate, setFromDate] = useState<Date | null>(null);
+  const [fromDate, setFromDate] = useState<Date | null>(new Date());
   const [toDate, setToDate] = useState<Date>(new Date());
   const [result, setResult] = useState<AgeCalculationResult | null>(null);
   const [editingMode, setEditingMode] = useState<boolean>(true);
@@ -119,7 +119,7 @@ export default function HomeScreen() {
   const formFieldsAnimatedStyle = useAnimatedStyle(() => {
     return {
       opacity: interpolate(morphProgress.value, [0, 0.8], [1, 0], Extrapolation.CLAMP),
-      height: interpolate(morphProgress.value, [0, 1], [220, 0], Extrapolation.CLAMP),
+      height: interpolate(morphProgress.value, [0, 1], [200, 0], Extrapolation.CLAMP),
       pointerEvents: editingMode ? 'auto' : 'none',
       overflow: 'hidden',
     };
