@@ -288,7 +288,7 @@ export default function HomeScreen() {
                       {
                         label: 'Total Days',
                         value: `${formatNumber(result.totalDays)} days`,
-                        icon: 'clockcircleo',
+                        icon: 'schedule',
                       },
                       {
                         label: 'Total Hours',
