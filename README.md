@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# ⏳ Age Calculator App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern, high-performance, dark-themed React Native / Expo mobile application designed to calculate exact age breakdowns with fluid animations and a visual range calendar preview.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Screenshots
 
+<div align="center">
+  <img src="./DateSelectorScreen.jpeg" width="45%" alt="Date Selector Screen" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./AgeCalculationScreen.jpeg" width="45%" alt="Age Calculation Screen" />
+</div>
+
+---
+
+## ✨ Features
+
+- 🎯 **Exact Age Calculation**: Accurately calculates age in years, months, and days.
+- 📊 **Comprehensive Breakdown**: Displays detailed metrics including:
+  - Total Weeks & Remaining Days
+  - Total Days
+  - Total Hours
+  - Total Minutes
+  - Total Seconds
+- 📅 **Visual Range Calendar Preview**: Interactive custom calendar highlighting the start date, end date, and range span.
+- 🎨 **Sleek Dark Mode Design**: Minimalist pitch-black interface with blue & purple accents designed for maximum visual comfort.
+- ⚡ **Fluid Micro-Animations**: Smooth morphing card transitions and button press scaling powered by `react-native-reanimated`.
+- 📱 **Dynamic Safe-Area & Hardware Back Support**: Automatically adapts footer positioning for Android 3-button & gesture navigation bars, and supports native Android hardware back button navigation.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [React Native](https://reactnative.dev/) with [Expo (v54)](https://expo.dev/)
+- **Routing**: [Expo Router](https://docs.expo.dev/router/introduction/) (File-based navigation)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Animations**: [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+- **Date Handling**: [Day.js](https://day.js.org/)
+- **UI Components**: [@ant-design/react-native](https://rn.ant.design/) & [@expo/vector-icons](https://icons.expo.fyi/)
+- **Safe Area Management**: [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Expo Go](https://expo.dev/go) app on your mobile device OR Android Emulator / iOS Simulator
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/S30ULFR05T/age-calculator.git
+   cd age-calculator
+   ```
+
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Start the Expo development server**:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Run on device/emulator**:
+   - Scan the QR code with **Expo Go** (Android) or **Camera** (iOS).
+   - Press `a` to launch in an Android Emulator.
+   - Press `i` to launch in an iOS Simulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🧑‍💻 Author
 
-## Get a fresh project
+Designed and developed with ❤️ by **[S30ULFR05T](https://github.com/S30ULFR05T)**.
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## 📄 License
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is open-source and available under the [MIT License](LICENSE).
