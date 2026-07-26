@@ -135,16 +135,16 @@ export function RangeCalendar({ fromDate, toDate }: RangeCalendarProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#18191D',
     borderRadius: 18,
     padding: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
+    shadowOpacity: 0.2,
     shadowRadius: 12,
     elevation: 3,
     borderWidth: 1,
-    borderColor: '#E8E8E8',
+    borderColor: '#26272B',
   },
   header: {
     flexDirection: 'row',
@@ -155,12 +155,12 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#2C3E50',
+    color: '#FFFFFF',
   },
   navButton: {
     padding: 8,
     borderRadius: 8,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#26272B',
   },
   weekdaysContainer: {
     flexDirection: 'row',
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     width: 36,
     textAlign: 'center',
     fontSize: 12,
-    color: '#8C8C8C',
+    color: '#9CA3AF',
     fontWeight: '600',
   },
   grid: {
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   trackHighlight: {
     position: 'absolute',
     height: 32,
-    backgroundColor: '#E6F4FE',
+    backgroundColor: 'rgba(22, 119, 255, 0.25)',
     zIndex: 1,
   },
   trackStart: {
@@ -221,17 +221,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#1677FF',
     shadowColor: '#1677FF',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.4,
     shadowRadius: 4,
     elevation: 2,
   },
   dayText: {
     fontSize: 13,
-    color: '#333333',
+    color: '#FFFFFF',
     fontWeight: '500',
   },
   inBetweenDayText: {
-    color: '#1677FF',
+    color: '#60A5FA',
     fontWeight: 'bold',
   },
   activeDayText: {
@@ -239,6 +239,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   inactiveDayText: {
-    color: '#BFBFBF',
+    color: '#4B5563',
   },
 });

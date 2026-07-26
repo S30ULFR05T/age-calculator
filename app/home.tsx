@@ -197,6 +197,7 @@ export default function HomeScreen() {
                   >
                     <List.Item
                       arrow="horizontal"
+                      style={styles.listItemRow}
                       extra={
                         <Text style={[styles.dateTextVal, fromDate && styles.dateTextSelected]}>
                           {formatDate(fromDate)}
@@ -219,6 +220,7 @@ export default function HomeScreen() {
                   >
                     <List.Item
                       arrow="horizontal"
+                      style={styles.listItemRow}
                       extra={
                         <Text style={[styles.dateTextVal, toDate && styles.dateTextSelected]}>
                           {formatDate(toDate)}
@@ -278,7 +280,7 @@ export default function HomeScreen() {
                       onPress={handleEdit}
                       style={styles.editButton}
                     >
-                      <AntDesign name="edit" size={20} color="#1677FF" />
+                      <AntDesign name="edit" size={20} color="#3B82F6" />
                     </TouchableOpacity>
                   </Animated.View>
                 </Flex>
@@ -362,7 +364,7 @@ export default function HomeScreen() {
                       >
                         <Flex justify="between" align="center" style={styles.listItem}>
                           <Flex align="center">
-                            <AntDesign name={item.icon as any} size={16} color="#6C63FF" style={styles.listIcon} />
+                            <AntDesign name={item.icon as any} size={16} color="#818CF8" style={styles.listIcon} />
                             <Text style={styles.listItemLabel}>{item.label}</Text>
                           </Flex>
                           <Text style={styles.listItemVal}>{item.value}</Text>
@@ -444,11 +446,12 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: 18,
-    backgroundColor: 'white',
-    borderWidth: 0,
+    backgroundColor: '#18191D',
+    borderWidth: 1,
+    borderColor: '#26272B',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.04,
+    shadowOpacity: 0.2,
     shadowRadius: 16,
     elevation: 4,
   },
@@ -459,7 +462,7 @@ const styles = StyleSheet.create({
   formTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#FFFFFF',
     marginBottom: 12,
     paddingHorizontal: 6,
   },
@@ -467,10 +470,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderWidth: 0,
   },
+  listItemRow: {
+    backgroundColor: 'transparent',
+  },
   fieldLabel: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#4B5563',
+    color: '#E5E7EB',
   },
   dateTextVal: {
     fontSize: 15,
@@ -478,7 +484,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   dateTextSelected: {
-    color: '#111827',
+    color: '#9CA3AF',
     fontWeight: '600',
   },
   calcButtonWrapper: {
@@ -493,12 +499,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: '#1677FF',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 3,
   },
   calculateButtonDisabled: {
-    backgroundColor: '#BFBFBF',
+    backgroundColor: '#374151',
     shadowOpacity: 0,
     elevation: 0,
   },
@@ -520,19 +526,19 @@ const styles = StyleSheet.create({
   summaryLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#9CA3AF',
     width: 45,
   },
   summaryValue: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#FFFFFF',
   },
   editButton: {
     width: 42,
     height: 42,
     borderRadius: 12,
-    backgroundColor: '#E6F4FE',
+    backgroundColor: '#132F4C',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -556,27 +562,27 @@ const styles = StyleSheet.create({
   cardHeaderTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#FFFFFF',
   },
   primaryResultContainer: {
     alignItems: 'center',
-    backgroundColor: '#F0F5FF',
+    backgroundColor: '#132035',
     borderRadius: 14,
     paddingVertical: 18,
     paddingHorizontal: 12,
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#D6E4FF',
+    borderColor: '#1D3557',
   },
   primaryResultVal: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#1677FF',
+    color: '#3B82F6',
     textAlign: 'center',
   },
   primaryResultLabel: {
     fontSize: 12,
-    color: '#8C8C8C',
+    color: '#64748B',
     fontWeight: '600',
     marginTop: 4,
     textTransform: 'uppercase',
@@ -591,10 +597,10 @@ const styles = StyleSheet.create({
   listItem: {
     paddingVertical: 12,
     paddingHorizontal: 16,
-    backgroundColor: '#FAF9FF',
+    backgroundColor: '#1E1F28',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#EFEFFF',
+    borderColor: '#2B2C38',
   },
   listIcon: {
     marginRight: 10,
@@ -602,12 +608,12 @@ const styles = StyleSheet.create({
   listItemLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#4B5563',
+    color: '#D1D5DB',
   },
   listItemVal: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#FFFFFF',
   },
   sectionHeaderContainer: {
     flexDirection: 'row',

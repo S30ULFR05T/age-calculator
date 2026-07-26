@@ -1,8 +1,7 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 import AntProvider from '@ant-design/react-native/lib/provider';
 import enUS from '@ant-design/react-native/lib/locale-provider/en_US';
 import { useFonts } from 'expo-font';
@@ -13,9 +12,17 @@ import 'react-native-gesture-handler';
 // Prevent the splash screen from automatically hiding before assets are loaded.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+const darkAntTheme = {
+  fill_base: '#18191D',
+  fill_body: '#000000',
+  fill_tap: '#26272B',
+  color_text_base: '#FFFFFF',
+  color_text_caption: '#9CA3AF',
+  color_text_placeholder: '#6B7280',
+  border_color_base: '#26272B',
+};
 
+export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
     'antoutline': require('@ant-design/icons-react-native/fonts/antoutline.ttf'),
     'antfill': require('@ant-design/icons-react-native/fonts/antfill.ttf'),
@@ -32,13 +39,13 @@ export default function RootLayout() {
   }
 
   return (
-    <AntProvider locale={enUS}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <AntProvider theme={darkAntTheme} locale={enUS}>
+      <ThemeProvider value={DarkTheme}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="home" />
         </Stack>
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
       </ThemeProvider>
     </AntProvider>
   );
